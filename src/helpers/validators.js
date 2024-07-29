@@ -23,7 +23,7 @@ import {
     length, lte,
     not,
     or,
-    propEq, reject, toLower,
+    propEq, reject, subtract, toLower,
     values,
 } from "ramda";
 import {eq} from "lodash/lang";
@@ -75,8 +75,8 @@ export const validateFieldN2 = compose(
 
 // 3. Количество красных фигур равно кол-ву синих.
 export const validateFieldN3 = compose(
-    equals(1),
-    converge(divide, [
+    equals(0),
+    converge(subtract, [
         lengthFilter(filter(isRed)),
         lengthFilter(filter(isBlue))
     ]),
